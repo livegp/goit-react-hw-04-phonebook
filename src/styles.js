@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import { reset } from 'styled-reset';
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
 ${normalize}
 ${reset}
 *,
@@ -11,3 +11,5 @@ ${reset}
     box-sizing: border-box;
 }
 `;
+
+export default GlobalStyle;

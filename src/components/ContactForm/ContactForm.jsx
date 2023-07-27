@@ -1,7 +1,8 @@
-import { Btn, Form, List } from './ContactForm.styled';
-import { Component } from 'react';
-import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
+import { Component } from 'react';
+
+import { Btn, Form, List } from './ContactForm.styled';
 
 class ContactForm extends Component {
   nameId = nanoid();
@@ -10,7 +11,7 @@ class ContactForm extends Component {
 
   state = {
     name: '',
-    number: '',
+    number: ''
   };
 
   handleChange = ({ target: { name, value } }) => {
@@ -67,7 +68,7 @@ class ContactForm extends Component {
 }
 
 ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default ContactForm;

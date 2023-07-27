@@ -19,7 +19,7 @@ jobs:
       - name: Install, lint, build 🔧
         run: |
           pnpm install
-          pnpm run lint:js
+          pnpm lint:es
           pnpm run build
 
       - name: Deploy 🚀

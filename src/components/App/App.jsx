@@ -1,14 +1,15 @@
-import { Container, Section, SubTitle, Title } from './App.styled';
-import { Component } from 'react';
-import ContactForm from 'components/ContactForm/ContactForm';
-import ContactList from 'components/ContactList/ContactList';
-import Filter from 'components/Filter/Filter';
 import { nanoid } from 'nanoid';
+import { Component } from 'react';
+
+import { Container, Section, SubTitle, Title } from './App.styled';
+import ContactForm from '../ContactForm/ContactForm';
+import ContactList from '../ContactList/ContactList';
+import Filter from '../Filter/Filter';
 
 class App extends Component {
   state = {
     contacts: [],
-    filter: '',
+    filter: ''
   };
 
   componentDidMount() {
@@ -37,7 +38,7 @@ class App extends Component {
       return;
     }
     this.setState(prevState => ({
-      contacts: [...prevState.contacts, newData],
+      contacts: [...prevState.contacts, newData]
     }));
   };
 
@@ -47,7 +48,7 @@ class App extends Component {
 
   deleteContact = id => {
     this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== id),
+      contacts: prevState.contacts.filter(contact => contact.id !== id)
     }));
   };
 

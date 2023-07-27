@@ -1,61 +1,91 @@
 {
+  "root": true,
   "env": {
-    "es6": true,
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "node": true
   },
-  "extends": [
-    "standard",
-    "eslint:all",
-    "eslint:recommended",
-    "prettier",
-    "react-app",
-    "plugin:prettier/recommended",
-    // "plugin:import/recommended",
-    // "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended",
-    "plugin:jsx-a11y/recommended"
-    // "airbnb",
-    // "plugin:react/all"
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import",
+    "unused-imports",
+    "styled-components-a11y",
+    "prettier"
   ],
-  "overrides": [],
-  "parser": "@babel/eslint-parser",
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:import/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:styled-components-a11y/recommended",
+    "prettier",
+    "react-app"
+  ],
   "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks", "prettier", "import", "jsx-a11y"],
+  "overrides": [
+    {
+      "files": ["src/**/*.{js,jsx}"],
+      "rules": {
+        "react/prop-types": "off",
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              ["parent", "sibling"],
+              "index",
+              "object",
+              "type"
+            ],
+            "pathGroups": [
+              {
+                "pattern": "./**/**\\.css",
+                "group": "type",
+                "position": "after"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": ["builtin"],
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            },
+            "newlines-between": "always",
+            "warnOnUnassignedImports": true
+          }
+        ]
+      }
+    }
+  ],
   "rules": {
-    // "indent": "error",
-    // "prettier/prettier": "error",
-    // "import/no-unresolved": [2, { "commonjs": true, "amd": true }],
-    "import/named": 2,
-    "import/namespace": 2,
-    "import/default": 2,
-    "import/export": 2,
-    // "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-uses-react": "off",
-    "no-ternary": "off",
-    "capitalized-comments": [
-      "error",
-      "always",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/label-has-associated-control": [
+      2,
       {
-        "ignorePattern": "pragma|ignored",
-        "ignoreInlineComments": true
+        "labelComponents": ["CustomInputLabel"],
+        "labelAttributes": ["label"],
+        "controlComponents": ["CustomInput"],
+        "depth": 3
       }
     ],
-    "no-magic-numbers": [
-      "error",
-      { "ignore": [0, 1, 2, 5, 6, 9, 16, 36, 100, 400] }
-    ],
-    "no-alert": "off"
+    "jsx-a11y/no-noninteractive-element-interactions": "warn",
+    "jsx-quotes": ["error", "prefer-double"],
+    "no-unused-vars": "warn",
+    // "react/function-component-definition": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "warn",
+    "semi": "error",
+    "react/state-in-constructor": "off",
+    "no-alert": "off",
+    "prettier/prettier": 2,
+    "import/no-unresolved": 2
   }
 }
