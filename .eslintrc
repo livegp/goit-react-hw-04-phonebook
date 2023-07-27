@@ -1,0 +1,61 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "standard",
+    "eslint:all",
+    "eslint:recommended",
+    "prettier",
+    "react-app",
+    "plugin:prettier/recommended",
+    // "plugin:import/recommended",
+    // "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended"
+    // "airbnb",
+    // "plugin:react/all"
+  ],
+  "overrides": [],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["react", "react-hooks", "prettier", "import", "jsx-a11y"],
+  "rules": {
+    // "indent": "error",
+    // "prettier/prettier": "error",
+    // "import/no-unresolved": [2, { "commonjs": true, "amd": true }],
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/default": 2,
+    "import/export": 2,
+    // "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
+    "no-ternary": "off",
+    "capitalized-comments": [
+      "error",
+      "always",
+      {
+        "ignorePattern": "pragma|ignored",
+        "ignoreInlineComments": true
+      }
+    ],
+    "no-magic-numbers": [
+      "error",
+      { "ignore": [0, 1, 2, 5, 6, 9, 16, 36, 100, 400] }
+    ],
+    "no-alert": "off"
+  }
+}
