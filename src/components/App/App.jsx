@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     const storedContacts = JSON.parse(localStorage.getItem('contacts'));
-    if (storedContacts) {
+    if (storedContacts && storedContacts.length > 0) {
       setContacts(storedContacts);
     }
   }, []);
